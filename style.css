@@ -58,9 +58,8 @@ h3 {
   justify-content: space-between;
   margin: 20px 0 0;
   padding: 10px;
-  border-bottom: 1px solid #111;
+  border-top: 1px solid #111;
   font-weight: 300;
-  background-color: #fff;
 }
 
 .person {

@@ -54,8 +54,10 @@ function sortByRichest() {
 function calculateWealth() {
   const wealth = data.reduce((acc, user) => (acc += user.money), 0);
   const wealthEl = document.createElement("div");
-  wealthEl.classList.add("person");
-  wealthEl.innerHTML = `<strong>Total Wealth: </strong>${formatMoney(wealth)}`;
+  // wealthEl.classList.add("person");
+  wealthEl.innerHTML = `<h3><strong>Total Wealth:</strong> ${formatMoney(
+    wealth
+  )}</h3>`;
   main.appendChild(wealthEl);
 }
 
