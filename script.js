@@ -20,7 +20,7 @@ async function getRandomUser() {
 
   const newUser = {
     name: `${user.name.first} ${user.name.last}`,
-    money: Math.floor(Math.random() * 1000000)
+    money: Math.floor(Math.random() * 1000000),
   };
 
   addData(newUser);
@@ -28,9 +28,16 @@ async function getRandomUser() {
 
 // Double everyone's money
 function doubleMoney() {
-  data = data.map(user => {
+  data = data.map((user) => {
     return { ...user, money: user.money * 2 };
   });
+
+  updateDOM();
+}
+
+// Filter by millionaires
+function showMillionaires() {
+  data = data.filter((user) => user.money > 1000000);
 
   updateDOM();
 }
@@ -54,7 +61,7 @@ function updateDOM(providedData = data) {
   // Clear main div
   main.innerHTML = "<h2><strong>Person</strong> Wealth</h2>";
 
-  providedData.forEach(item => {
+  providedData.forEach((item) => {
     const element = document.createElement("div");
     element.classList.add("person");
     element.innerHTML = `<strong>${item.name}</strong> ${formatMoney(
@@ -73,3 +80,4 @@ function formatMoney(number) {
 addUserBtn.addEventListener("click", getRandomUser);
 doubleBtn.addEventListener("click", doubleMoney);
 sortBtn.addEventListener("click", sortByRichest);
+showMillionairesBtn.addEventListener("click", showMillionaires);
