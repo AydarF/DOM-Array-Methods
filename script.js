@@ -49,6 +49,15 @@ function sortByRichest() {
   updateDOM();
 }
 
+// Calculate the total wealth
+function calculateWealth() {
+  const wealth = data.reduce((acc, user) => (acc += user.money), 0);
+  const wealthEl = document.createElement("div");
+  wealthEl.classList.add("person");
+  wealthEl.innerHTML = `<strong>Total Wealth: </strong>${formatMoney(wealth)}`;
+  main.appendChild(wealthEl);
+}
+
 // Add a new object to data array
 function addData(obj) {
   data.push(obj);
@@ -81,3 +90,4 @@ addUserBtn.addEventListener("click", getRandomUser);
 doubleBtn.addEventListener("click", doubleMoney);
 sortBtn.addEventListener("click", sortByRichest);
 showMillionairesBtn.addEventListener("click", showMillionaires);
+calculateWealthBtn.addEventListener("click", calculateWealth);
