@@ -4,6 +4,7 @@ const doubleBtn = document.getElementById("double");
 const showMillionairesBtn = document.getElementById("show-millionaires");
 const sortBtn = document.getElementById("sort");
 const calculateWealthBtn = document.getElementById("calculate-wealth");
+const resetBtn = document.getElementById("reset");
 
 let data = [];
 
@@ -58,6 +59,12 @@ function calculateWealth() {
   main.appendChild(wealthEl);
 }
 
+// Reset users = Clear the data
+function resetUsers() {
+  data = [];
+  main.innerHTML = "<h2><strong>Person</strong> Wealth</h2>";
+}
+
 // Add a new object to data array
 function addData(obj) {
   data.push(obj);
@@ -91,3 +98,4 @@ doubleBtn.addEventListener("click", doubleMoney);
 sortBtn.addEventListener("click", sortByRichest);
 showMillionairesBtn.addEventListener("click", showMillionaires);
 calculateWealthBtn.addEventListener("click", calculateWealth);
+resetBtn.addEventListener("click", resetUsers);
